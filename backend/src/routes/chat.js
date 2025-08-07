@@ -1,9 +1,9 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const chatController = require('../controllers/chatController');
-const { validateChatMessage } = require('../middleware/validator');
-const { chatLimiter } = require('../middleware/rateLimiter');
-const { authenticate } = require('../middleware/auth');
+import chatController from '../controllers/chatController.js';
+import { validateChatMessage } from '../middleware/validator.js';
+import { chatLimiter } from '../middleware/rateLimiter.js';
+import { authenticate } from '../middleware/auth.js';
 
 // POST /api/chat/send - Main chat endpoint
 router.post('/send', authenticate, chatLimiter, validateChatMessage, chatController.sendMessage);
@@ -14,4 +14,4 @@ router.get('/history/:userId', authenticate, chatController.getChatHistory);
 // POST /api/chat/crisis-check - Crisis detection endpoint
 router.post('/crisis-check', authenticate, validateChatMessage, chatController.checkCrisis);
 
-module.exports = router;
+export default router;

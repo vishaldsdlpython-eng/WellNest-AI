@@ -1,8 +1,8 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const wellnessController = require('../controllers/wellnessController');
-const { validateWellnessEntry } = require('../middleware/validator');
-const { authenticate } = require('../middleware/auth');
+import wellnessController from '../controllers/wellnessController.js';
+import { validateWellnessEntry } from '../middleware/validator.js';
+import { authenticate } from '../middleware/auth.js';
 
 // GET /api/wellness/context/:userId - User wellness context
 router.get('/context/:userId', authenticate, wellnessController.getWellnessContext);
@@ -16,4 +16,4 @@ router.get('/entries/:userId', authenticate, wellnessController.getWellnessEntri
 // GET /api/wellness/analytics/:userId - Get wellness analytics for user
 router.get('/analytics/:userId', authenticate, wellnessController.getWellnessAnalytics);
 
-module.exports = router;
+export default router;
