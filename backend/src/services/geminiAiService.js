@@ -1,5 +1,5 @@
-const axios = require('axios');
-const logger = require('../utils/logger');
+import axios from 'axios';
+import logger from '../utils/logger.js';
 
 const GEMINI_MODEL = 'gemini-1.5-flash';
 const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
@@ -151,4 +151,4 @@ You have access to the user's wellness data and recent conversation. Use these t
   }
 }
 
-module.exports = new GeminiAiService();
+export default new GeminiAiService();

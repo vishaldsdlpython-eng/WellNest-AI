@@ -1,6 +1,6 @@
-const databaseService = require('../services/databaseService');
-const logger = require('../utils/logger');
-const { sanitizeInput } = require('../utils/helpers');
+import databaseService from '../services/databaseService.js';
+import logger from '../utils/logger.js';
+import { sanitizeInput } from '../utils/helpers.js';
 
 // Get user wellness context
 async function getWellnessContext(req, res, next) {
@@ -138,7 +138,7 @@ async function getWellnessAnalytics(req, res, next) {
   }
 }
 
-module.exports = {
+export default {
   getWellnessContext,
   createWellnessEntry,
   getWellnessEntries,

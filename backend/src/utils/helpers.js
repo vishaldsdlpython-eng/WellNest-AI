@@ -1,4 +1,4 @@
-const crypto = require('crypto');
+import crypto from 'crypto';
 
 /**
  * Generate a unique session ID
@@ -25,7 +25,7 @@ const sanitizeInput = (input) => {
     .trim();
 };
 
-module.exports = {
+export {
   generateSessionId,
   calculateResponseTime,
   sanitizeInput

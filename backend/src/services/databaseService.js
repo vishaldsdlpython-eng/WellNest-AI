@@ -1,6 +1,6 @@
-const pool = require('../models/database');
-const logger = require('../utils/logger');
-const bcrypt = require('bcrypt');
+import pool from '../models/database.js';
+import logger from '../utils/logger.js';
+import bcrypt from 'bcrypt';
 
 class DatabaseService {
   // User operations
@@ -304,4 +304,4 @@ class DatabaseService {
   }
 }
 
-module.exports = new DatabaseService();
+export default new DatabaseService();

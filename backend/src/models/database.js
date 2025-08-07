@@ -1,5 +1,5 @@
-const { Pool } = require('pg');
-const logger = require('../utils/logger');
+import { Pool } from 'pg';
+import logger from '../utils/logger.js';
 
 // Create a connection pool
 const pool = new Pool({
@@ -20,4 +20,4 @@ pool.on('error', (err) => {
 });
 
 // Export the pool for use in other modules
-module.exports = pool;
+export default pool;

@@ -1,6 +1,6 @@
-const databaseService = require('../services/databaseService');
-const jwt = require('jsonwebtoken');
-const logger = require('../utils/logger');
+import databaseService from '../services/databaseService.js';
+import jwt from 'jsonwebtoken';
+import logger from '../utils/logger.js';
 
 // Register a new user
 async function register(req, res, next) {
@@ -121,7 +121,7 @@ async function getProfile(req, res, next) {
   }
 }
 
-module.exports = {
+export default {
   register,
   login,
   getProfile

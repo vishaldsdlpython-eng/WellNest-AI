@@ -1,4 +1,4 @@
-const rateLimit = require('express-rate-limit');
+import rateLimit from 'express-rate-limit';
 
 // General rate limiter - 100 requests per 15 minutes
 const generalLimiter = rateLimit({
@@ -24,7 +24,7 @@ const chatLimiter = rateLimit({
   }
 });
 
-module.exports = {
+export {
   generalLimiter,
   chatLimiter
 };

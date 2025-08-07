@@ -1,6 +1,6 @@
-const { body, validationResult } = require('express-validator');
-const { sanitizeInput } = require('../utils/helpers');
-const logger = require('../utils/logger');
+import { body, validationResult } from 'express-validator';
+import { sanitizeInput } from '../utils/helpers.js';
+import logger from '../utils/logger.js';
 
 // Middleware to validate chat messages
 const validateChatMessage = [
@@ -123,7 +123,7 @@ const validateLogin = [
   }
 ];
 
-module.exports = {
+export {
   validateChatMessage,
   validateWellnessEntry,
   validateRegistration,

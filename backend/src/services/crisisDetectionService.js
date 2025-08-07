@@ -1,5 +1,5 @@
-const axios = require('axios');
-const logger = require('../utils/logger');
+import axios from 'axios';
+import logger from '../utils/logger.js';
 
 class CrisisDetectionService {
   constructor() {
@@ -95,4 +95,4 @@ Would it be okay if we continue our conversation while you also connect with one
   }
 }
 
-module.exports = new CrisisDetectionService();
+export default new CrisisDetectionService();

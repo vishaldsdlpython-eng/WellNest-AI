@@ -1,11 +1,11 @@
-import { connect } from './database';
-import { info, error as _error } from '../utils/logger';
+import pool from './database.js';
+import logger from '../utils/logger.js';
 
 async function runMigration() {
-  const client = await connect();
+  const client = await pool.connect();
   
   try {
-    info('Starting database migration...');
+    logger.info('Starting database migration...');
     
     // Begin transaction
     await client.query('BEGIN');
@@ -46,10 +46,10 @@ async function runMigration() {
     // Commit transaction
     await client.query('COMMIT');
     
-    info('Database migration completed successfully');
+    logger.info('Database migration completed successfully');
   } catch (error) {
     await client.query('ROLLBACK');
-    _error(`Migration failed: ${error.message}`);
+    logger.error(`Migration failed: ${error.message}`);
     throw error;
   } finally {
     client.release();
@@ -62,5 +62,3 @@ if (require.main === module) {
     .then(() => process.exit(0))
     .catch(() => process.exit(1));
 }
-
-export default { runMigration };

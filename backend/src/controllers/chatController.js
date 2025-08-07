@@ -1,8 +1,8 @@
-const geminiAiService = require('../services/geminiAiService');
-const crisisDetectionService = require('../services/crisisDetectionService');
-const databaseService = require('../services/databaseService');
-const logger = require('../utils/logger');
-const { generateSessionId, calculateResponseTime } = require('../utils/helpers');
+import geminiAiService from '../services/geminiAiService.js';
+import crisisDetectionService from '../services/crisisDetectionService.js';
+import databaseService from '../services/databaseService.js';
+import logger from '../utils/logger.js';
+import { generateSessionId, calculateResponseTime } from '../utils/helpers.js';
 
 // Main chat endpoint
 async function sendMessage(req, res, next) {
@@ -121,7 +121,7 @@ async function checkCrisis(req, res, next) {
   }
 }
 
-module.exports = {
+export default {
   sendMessage,
   getChatHistory,
   checkCrisis

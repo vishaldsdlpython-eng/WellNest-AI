@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken');
-const logger = require('../utils/logger');
+import jwt from 'jsonwebtoken';
+import logger from '../utils/logger.js';
 
 // Authentication middleware
 const authenticate = (req, res, next) => {
@@ -34,6 +34,6 @@ const authenticate = (req, res, next) => {
   }
 };
 
-module.exports = {
+export {
   authenticate
 };
