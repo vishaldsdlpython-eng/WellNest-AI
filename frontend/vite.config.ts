@@ -38,10 +38,7 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      external: [],
-      input: {
-        main: path.resolve(__dirname, 'src/main.tsx')
-      }
+      external: []
     }
   }
 });
